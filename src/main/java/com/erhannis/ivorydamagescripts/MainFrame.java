@@ -15,9 +15,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private static javax.swing.JTextPane logPanel;
     public static void log(String s) {
+        System.out.print(s);
         logPanel.setText(logPanel.getText()+s);
     }
     public static void logln(String s) {
+        System.out.println(s);
         logPanel.setText(logPanel.getText()+s+"\n");
     }
     
@@ -50,6 +52,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ivory Damage Scripts");
 
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
@@ -130,7 +133,7 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,72 +159,75 @@ public class MainFrame extends javax.swing.JFrame {
     public void doBite() {
         CompoundAttack ca = new CompoundAttack(new Roll(16, Die.D20), Roll.ndn(2, Die.D8, 8));
         ca = modify(ca);
-        System.out.println("Bite toHit:");
+        MainFrame.logln("Bite toHit:");
         int t = ca.rollToHit();
-        System.out.println(" total " + t);
-        System.out.println("Bite toDamage:");
+        MainFrame.logln(" total " + t);
+        MainFrame.logln("Bite toDamage:");
         t = ca.rollToDamage();
-        System.out.println(" total " + t);
-        System.out.println("");
+        MainFrame.logln(" total " + t);
+        MainFrame.logln("");
     }
 
     public void doClaw() {
         CompoundAttack ca = new CompoundAttack(new Roll(14, Die.D20), Roll.ndn(1, Die.D8, 3));
         ca = modify(ca);
-        System.out.println("Claw toHit:");
+        MainFrame.logln("Claw toHit:");
         int t = ca.rollToHit();
-        System.out.println(" total " + t);
-        System.out.println("Claw toDamage:");
+        MainFrame.logln(" total " + t);
+        MainFrame.logln("Claw toDamage:");
         t = ca.rollToDamage();
-        System.out.println(" total " + t);
-        System.out.println("");
+        MainFrame.logln(" total " + t);
+        MainFrame.logln("");
     }
 
     public void doWing() {
         CompoundAttack ca = new CompoundAttack(new Roll(14, Die.D20), Roll.ndn(1, Die.D8, 3));
         ca = modify(ca);
-        System.out.println("Wing toHit:");
+        MainFrame.logln("Wing toHit:");
         int t = ca.rollToHit();
-        System.out.println(" total " + t);
-        System.out.println("Wing toDamage:");
+        MainFrame.logln(" total " + t);
+        MainFrame.logln("Wing toDamage:");
         t = ca.rollToDamage();
-        System.out.println(" total " + t);
-        System.out.println("");
+        MainFrame.logln(" total " + t);
+        MainFrame.logln("");
     }
     
     public void doTail() {
         CompoundAttack ca = new CompoundAttack(new Roll(14, Die.D20), Roll.ndn(2, Die.D6, 8));
         ca = modify(ca);
-        System.out.println("Tail toHit:");
+        MainFrame.logln("Tail toHit:");
         int t = ca.rollToHit();
-        System.out.println(" total " + t);
-        System.out.println("Tail toDamage:");
+        MainFrame.logln(" total " + t);
+        MainFrame.logln("Tail toDamage:");
         t = ca.rollToDamage();
-        System.out.println(" total " + t);
-        System.out.println("");
+        MainFrame.logln(" total " + t);
+        MainFrame.logln("");
     }
 
     private void btnBiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiteActionPerformed
+        jTextPane1.setText("");
         doBite();
-        System.out.println("----");
+        MainFrame.logln("----");
     }//GEN-LAST:event_btnBiteActionPerformed
 
     private void btnFullAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFullAttackActionPerformed
+        jTextPane1.setText("");
         doBite();
         doClaw();
         doClaw();
         doWing();
         doWing();
         doTail();
-        System.out.println("----");
+        MainFrame.logln("----");
     }//GEN-LAST:event_btnFullAttackActionPerformed
 
     private void btnFlyingFullAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlyingFullAttackActionPerformed
+        jTextPane1.setText("");
         doBite();
         doClaw();
         doClaw();
         doTail();
-        System.out.println("----");
+        MainFrame.logln("----");
     }//GEN-LAST:event_btnFlyingFullAttackActionPerformed
 
     /**

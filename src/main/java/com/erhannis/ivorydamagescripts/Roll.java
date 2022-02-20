@@ -25,13 +25,13 @@ public class Roll {
         int total = 0;
         for (Die die : dice) {
             int r = die.roll();
-            System.out.print("+("+r+"/"+die.sides+")");
+            MainFrame.log("+("+r+"/"+die.sides+")");
             total += r;
         }
         if (modifier > 0) {
-            System.out.print("+"+modifier);
+            MainFrame.log("+"+modifier);
         } else if (modifier < 0) {
-            System.out.print(""+modifier);
+            MainFrame.log(""+modifier);
         }
         total += modifier;
         return total;
