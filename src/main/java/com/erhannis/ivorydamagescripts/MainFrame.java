@@ -48,12 +48,22 @@ public class MainFrame extends javax.swing.JFrame {
         cbHolyDamage = new javax.swing.JCheckBox();
         btnFullAttack = new javax.swing.JButton();
         btnFlyingFullAttack = new javax.swing.JButton();
+        spinAC = new javax.swing.JSpinner();
+        jLabel1 = new javax.swing.JLabel();
+        spinToHitMod = new javax.swing.JSpinner();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        spinToDamageMod = new javax.swing.JSpinner();
+        btnWing = new javax.swing.JButton();
+        btnTail = new javax.swing.JButton();
+        btnClaw = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ivory Damage Scripts");
 
+        jSplitPane1.setDividerLocation(200);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         btnBite.setText("Bite");
@@ -86,6 +96,39 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        spinAC.setModel(new javax.swing.SpinnerNumberModel());
+
+        jLabel1.setText("AC to beat");
+
+        spinToHitMod.setModel(new javax.swing.SpinnerNumberModel());
+
+        jLabel2.setText("+to hit");
+
+        jLabel3.setText("+to damage");
+
+        spinToDamageMod.setModel(new javax.swing.SpinnerNumberModel());
+
+        btnWing.setText("Wing");
+        btnWing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWingActionPerformed(evt);
+            }
+        });
+
+        btnTail.setText("Tail");
+        btnTail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTailActionPerformed(evt);
+            }
+        });
+
+        btnClaw.setText("Claw");
+        btnClaw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClawActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -93,14 +136,36 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbFlanking)
-                    .addComponent(cbPerformance)
-                    .addComponent(cbHolyDamage))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnFullAttack, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnBite, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnFlyingFullAttack, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(spinAC, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnFullAttack))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(spinToHitMod, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(spinToDamageMod, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3))
+                            .addComponent(cbFlanking)
+                            .addComponent(cbPerformance)
+                            .addComponent(cbHolyDamage))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 339, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnBite)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnClaw)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnWing)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnTail))
+                            .addComponent(btnFlyingFullAttack, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -109,6 +174,18 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(spinAC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(spinToHitMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(spinToDamageMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbPerformance)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbFlanking)
@@ -119,8 +196,13 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFlyingFullAttack)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBite)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnWing)
+                            .addComponent(btnTail)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnClaw)
+                                .addComponent(btnBite)))))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(jPanel1);
@@ -133,11 +215,11 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
         );
 
         pack();
@@ -153,55 +235,80 @@ public class MainFrame extends javax.swing.JFrame {
         if (cbFlanking.isSelected()) {
             atk = atk.plus(FLANKING);
         }
+        atk = atk.plus(new Attack(new Modifier((Integer)spinToHitMod.getValue()), new Modifier((Integer)spinToDamageMod.getValue())));
         return atk;
     }
     
-    public void doBite() {
+    public int doBite() {
         CompoundAttack ca = new CompoundAttack(new Roll(16, Die.D20), Roll.ndn(2, Die.D8, 8));
         ca = modify(ca);
         MainFrame.logln("Bite toHit:");
         int t = ca.rollToHit();
         MainFrame.logln(" total " + t);
-        MainFrame.logln("Bite toDamage:");
-        t = ca.rollToDamage();
-        MainFrame.logln(" total " + t);
+        if (t >= ((Integer)spinAC.getValue())) {
+            MainFrame.logln("Bite toDamage:");
+            t = ca.rollToDamage();
+            MainFrame.logln(" total " + t);
+        } else {
+            MainFrame.logln("Miss");
+            t = 0;
+        }
         MainFrame.logln("");
+        return 0;
     }
 
-    public void doClaw() {
+    public int doClaw() {
         CompoundAttack ca = new CompoundAttack(new Roll(14, Die.D20), Roll.ndn(1, Die.D8, 3));
         ca = modify(ca);
         MainFrame.logln("Claw toHit:");
         int t = ca.rollToHit();
         MainFrame.logln(" total " + t);
-        MainFrame.logln("Claw toDamage:");
-        t = ca.rollToDamage();
-        MainFrame.logln(" total " + t);
+        if (t >= ((Integer)spinAC.getValue())) {
+            MainFrame.logln("Claw toDamage:");
+            t = ca.rollToDamage();
+            MainFrame.logln(" total " + t);
+        } else {
+            MainFrame.logln("Miss");
+            t = 0;
+        }
         MainFrame.logln("");
+        return t;
     }
 
-    public void doWing() {
+    public int doWing() {
         CompoundAttack ca = new CompoundAttack(new Roll(14, Die.D20), Roll.ndn(1, Die.D8, 3));
         ca = modify(ca);
         MainFrame.logln("Wing toHit:");
         int t = ca.rollToHit();
         MainFrame.logln(" total " + t);
-        MainFrame.logln("Wing toDamage:");
-        t = ca.rollToDamage();
-        MainFrame.logln(" total " + t);
+        if (t >= ((Integer)spinAC.getValue())) {
+            MainFrame.logln("Wing toDamage:");
+            t = ca.rollToDamage();
+            MainFrame.logln(" total " + t);
+        } else {
+            MainFrame.logln("Miss");
+            t = 0;
+        }
         MainFrame.logln("");
+        return t;
     }
     
-    public void doTail() {
+    public int doTail() {
         CompoundAttack ca = new CompoundAttack(new Roll(14, Die.D20), Roll.ndn(2, Die.D6, 8));
         ca = modify(ca);
         MainFrame.logln("Tail toHit:");
         int t = ca.rollToHit();
         MainFrame.logln(" total " + t);
-        MainFrame.logln("Tail toDamage:");
-        t = ca.rollToDamage();
-        MainFrame.logln(" total " + t);
+        if (t >= ((Integer)spinAC.getValue())) {
+            MainFrame.logln("Tail toDamage:");
+            t = ca.rollToDamage();
+            MainFrame.logln(" total " + t);
+        } else {
+            MainFrame.logln("Miss");
+            t = 0;
+        }
         MainFrame.logln("");
+        return t;
     }
 
     private void btnBiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBiteActionPerformed
@@ -212,23 +319,47 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnFullAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFullAttackActionPerformed
         jTextPane1.setText("");
-        doBite();
-        doClaw();
-        doClaw();
-        doWing();
-        doWing();
-        doTail();
+        int t = 0;
+        t += doBite();
+        t += doClaw();
+        t += doClaw();
+        t += doWing();
+        t += doWing();
+        t += doTail();
+        MainFrame.logln("");
+        MainFrame.logln("total damage: " + t);
         MainFrame.logln("----");
     }//GEN-LAST:event_btnFullAttackActionPerformed
 
     private void btnFlyingFullAttackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlyingFullAttackActionPerformed
         jTextPane1.setText("");
-        doBite();
-        doClaw();
-        doClaw();
-        doTail();
+        int t = 0;
+        t += doBite();
+        t += doClaw();
+        t += doClaw();
+        t += doTail();
+        MainFrame.logln("");
+        MainFrame.logln("total damage: " + t);
         MainFrame.logln("----");
     }//GEN-LAST:event_btnFlyingFullAttackActionPerformed
+
+    private void btnWingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWingActionPerformed
+        jTextPane1.setText("");
+        doWing();
+        MainFrame.logln("----");
+    }//GEN-LAST:event_btnWingActionPerformed
+
+    private void btnTailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTailActionPerformed
+        jTextPane1.setText("");
+        doTail();
+        MainFrame.logln("----");
+    }//GEN-LAST:event_btnTailActionPerformed
+
+    private void btnClawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClawActionPerformed
+        jTextPane1.setText("");
+        doClaw();
+        MainFrame.logln("----");
+    }//GEN-LAST:event_btnClawActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,14 +398,23 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBite;
+    private javax.swing.JButton btnClaw;
     private javax.swing.JButton btnFlyingFullAttack;
     private javax.swing.JButton btnFullAttack;
+    private javax.swing.JButton btnTail;
+    private javax.swing.JButton btnWing;
     private javax.swing.JCheckBox cbFlanking;
     private javax.swing.JCheckBox cbHolyDamage;
     private javax.swing.JCheckBox cbPerformance;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JSpinner spinAC;
+    private javax.swing.JSpinner spinToDamageMod;
+    private javax.swing.JSpinner spinToHitMod;
     // End of variables declaration//GEN-END:variables
 }
